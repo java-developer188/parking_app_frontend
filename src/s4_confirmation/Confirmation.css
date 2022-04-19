@@ -1,0 +1,41 @@
+.confirmation {
+    font-size: 2rem;
+    color: black;
+    justify-content: center;
+    display: flex;
+    flex: 6;
+    flex-direction: column;
+    margin-bottom: 2%;
+    }
+    
+    .item {
+        flex: 1;
+        background-color: #A9B7B8;
+        border-radius: 4px;
+        text-align: left;
+        text-indent: 10px;
+        padding: 2%;
+        margin: 2%;
+    }
+
+.vspacer {
+    flex: 2;
+}
+
+@media screen and (max-width: 1200px) {
+    .vspacer {
+        flex: 2;
+    }
+}
+@media screen and (max-width: 600px) {
+    .vspacer {
+        flex: 2;
+    }
+}
+@media screen and (max-width: 480px) {
+    .vspacer {
+        flex: 2;
+        margin: 5%;
+    }
+    
+}

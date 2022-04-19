@@ -1,0 +1,14 @@
+.button_layer{
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+.button{
+    background-color: #165269 !important;
+    margin-right: 2%;
+    margin-left: 2%;
+}
+
+.hspacer{
+    flex: 1;
+}

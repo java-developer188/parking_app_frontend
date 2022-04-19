@@ -1,0 +1,30 @@
+.welcome_bar {
+    display: flex;
+    flex: 6;
+    background-color: #165269;
+    color: white;
+    height: fit-content;
+    width: 100%;
+}
+
+.left {
+    flex:3;
+    justify-items: left;
+    text-align: left;
+}
+
+.town_heading {
+    font-size: large;
+    font-weight: bold;
+    margin: 10px 10px 0px 10px;
+}
+
+.username {
+    margin: 0px 0px 10px 10px;
+}
+
+.parking_label {
+    flex:1;
+    margin: 10px;
+    text-align: right;
+}

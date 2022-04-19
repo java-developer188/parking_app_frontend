@@ -1,0 +1,12 @@
+.icon_layer {
+    background-color: #E3ECEE;
+    padding: 5px;
+}
+
+.icon_dot{
+    height: 50px;
+    width: 50px;
+    background-color: #165269;
+    border-radius: 50%;
+    overflow: hidden;
+}

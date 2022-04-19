@@ -1,0 +1,11 @@
+.bulletinboard {
+    display: flex;
+    height: fit-content;
+    background-color: #E3ECEE;
+    font-size: medium;
+    justify-content: center;
+}
+
+div .bulletinboard {
+    padding: 10px;
+}
