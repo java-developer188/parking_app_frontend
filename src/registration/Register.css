@@ -1,0 +1,29 @@
+  .register_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E3ECEE;
+    gap: 20px;
+    height: 100vh;
+  }
+
+  .register{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  .register_form div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .box_heading{
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .box_heading p{
+    font-size: medium;
+  }

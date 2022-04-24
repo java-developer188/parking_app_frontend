@@ -1,14 +1,29 @@
-import React from "react";
+import React ,{useState}from "react";
 import "./Confirmation.css";
 import { Button } from "reactstrap";
-import {Link} from 'react-router-dom';
+import {Link ,useLocation,useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine } from '@fortawesome/free-solid-svg-icons'
+import BulletinBoard from '../s0_bulletin/BulletinBoard';
+import Footer from '../footer/Footer';
+import WelcomeBar from '../s0_welcome/WelcomeBar';
 
 function Confirmation() {
+  const location = useLocation();
+  const [customer, setCustomer] = useState({...location.state.customer})
+  const [parking, setParking] = useState({...location.state.parking})
+  const [time, setTime] = useState({...location.state.time})
+  let navigate = useNavigate();
+
+  const navigateToSummary = (e) => {
+    e.preventDefault();   
+    let path = '/summary';
+    navigate(path,{state:{customer:customer,parking:parking,time:time}});
+  } 
   return (
     <div className="confirmation">
-
+      <BulletinBoard /> 
+      <WelcomeBar/>
       <div className="icon_layer">
         <div className="icon_dot">
             <FontAwesomeIcon icon={faChartLine} />
@@ -17,13 +32,13 @@ function Confirmation() {
       <div className="spacer"/>
      
         <div className="item">
-          Suzuki Khyber , R-2993
+          {customer.vehicle}
         </div> 
         <div className="item">
-          Zone 1, North Town
+          {parking.parking}
         </div>    
         <div className="item">
-          1 hour
+          {time.time}
         </div> 
         <div className="spacer"/>
         
@@ -39,14 +54,14 @@ function Confirmation() {
                     </Button>{' '}
                     <Button 
                             className="button"
-                            tag={Link}
-                            to={"/summary" } 
+                            onClick={navigateToSummary}
                             size="lg" 
                             active>
                       Accept
                     </Button>{' '}
           <div className="hspacer"/>
       </div>
+      <Footer/>
     </div>
   );
 }

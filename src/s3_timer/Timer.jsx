@@ -1,13 +1,30 @@
-import React from "react";
+import React ,{ useState}  from "react";
 import "./Timer.css";
 import { Button } from "reactstrap";
-import {Link} from 'react-router-dom';
+import {Link ,useLocation ,useNavigate} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-solid-svg-icons'
+import BulletinBoard from '../s0_bulletin/BulletinBoard';
+import Footer from '../footer/Footer';
+import WelcomeBar from '../s0_welcome/WelcomeBar';
 
 function Timer() {
+  const location = useLocation();
+  const [customer, setCustomer] = useState({...location.state.customer})
+  const [parking, setParking] = useState({...location.state.parking})
+  const [time, setTime] = useState()
+  let navigate = useNavigate();
+
+  const navigateToConfirmation = (e) => {
+    e.preventDefault();   
+    let path = '/confirmation';
+    navigate(path,{state:{customer:customer,parking:parking,time:time}});
+  } 
+
   return (
     <div className="timer">
+      <BulletinBoard /> 
+      <WelcomeBar/>
       <div className="icon_layer">
         <div className="icon_dot">
             <FontAwesomeIcon icon={faClock} />
@@ -15,16 +32,16 @@ function Timer() {
       </div>
       <div className="spacer"/>
       
-        <div className="item" onClick={()=>alert("Custom selected")}>
+        <div id="item1" className= 'item' onClick={(e)=>setTime({id:e.target.id,time:e.target.textContent})}>
           Custom
         </div> 
-        <div className="item" onClick={()=>alert("60 min selected")}>
+        <div id="item2" className= 'item' onClick={(e)=>setTime({id:e.target.id,time:e.target.textContent})}>
          60 minutes
         </div>    
-        <div className="item" onClick={()=>alert("30 min selected")}>
+        <div id="item3" className= 'item' onClick={(e)=>setTime({id:e.target.id,time:e.target.textContent})}>
           30 minutes
         </div> 
-        <div className="item" onClick={()=>alert("15 min selected")}>
+        <div id="item4" className= 'item' onClick={(e)=>setTime({id:e.target.id,time:e.target.textContent})}>
          15  minutes
         </div> 
         <div className="spacer"/>
@@ -41,14 +58,14 @@ function Timer() {
                     </Button>{' '}
                     <Button 
                             className="button"
-                            tag={Link}
-                            to={"/confirmation" } 
+                            onClick={navigateToConfirmation}
                             size="lg" 
                             active>
                       Accept
                     </Button>{' '}
           <div className="hspacer"/>
       </div>
+      <Footer/>
     </div>
   );
 }
