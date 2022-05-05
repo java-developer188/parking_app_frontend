@@ -83,7 +83,8 @@ function Timer() {
                             className="button"
                             onClick={navigateToConfirmation}
                             size="lg" 
-                            active>
+                            active={!!time? true:false}
+                            disabled={!! time? false:true}>
                       Accept
                     </Button>{' '}
           <div className="hspacer"/>

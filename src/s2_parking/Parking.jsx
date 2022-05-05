@@ -80,7 +80,8 @@ function Parking() {
                             className="button"
                             size="lg"
                             onClick={navigateToTimer} 
-                            active>
+                            active={!!parking? true:false}
+                            disabled={!! parking? false:true}>
                       Accept
                     </Button>{' '}
           <div className="hspacer"/>

@@ -87,7 +87,8 @@ function Vehicle() {
                             className="button" 
                             size="lg" 
                             onClick={navigateToParking}
-                            active>
+                            active={!!vehicle? true:false}
+                            disabled={!! vehicle? false:true}>
                       Accept
                     </Button>{' '}
           <div className="hspacer"/>
