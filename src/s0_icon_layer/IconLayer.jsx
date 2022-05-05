@@ -1,11 +1,12 @@
 import React from "react";
-import './IconLayer.css';
+import '../App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function IconLayer() {
+function IconLayer(props) {
   return (
     <div className="icon_layer">
         <div className="icon_dot">
-            <img src="../logo.svg" alt="task-icon"/>
+        <FontAwesomeIcon icon={props.icon} />
             </div>
     </div>
   );

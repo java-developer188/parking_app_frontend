@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLock , faUser} from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
-import '../s0_icon_layer/IconLayer.css';
 import "../button_layer/ButtonLayer.css"
 
 const Login = () => {

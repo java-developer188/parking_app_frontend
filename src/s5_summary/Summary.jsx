@@ -7,11 +7,13 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons'
 import BulletinBoard from '../s0_bulletin/BulletinBoard';
 import Footer from '../footer/Footer';
 import WelcomeBar from '../s0_welcome/WelcomeBar';
+import IconLayer from "../s0_icon_layer/IconLayer";
 
 function Summary() {
 
   const location = useLocation();
   const [customer, setCustomer] = useState({...location.state.customer})
+  const [vehicle, setVehicle] = useState({...location.state.vehicle})  
   const [parking, setParking] = useState({...location.state.parking})
   const [time, setTime] = useState({...location.state.time})
   let navigate = useNavigate();
@@ -19,24 +21,23 @@ function Summary() {
   const navigateTo = (e) => {
     e.preventDefault();   
     let path = '/';
-    navigate(path,{state:{customer:customer,parking:parking,time:time}});
+    navigate(path,{state:{customer:customer,
+      vehicle:vehicle,
+      parking:parking,
+      time:time}});
   } 
   return (
     <div className="summary">
       <BulletinBoard /> 
       <WelcomeBar/>
-      <div className="icon_layer">
-        <div className="icon_dot">
-            <FontAwesomeIcon icon={faCheck} />
-        </div>
-      </div>
+      <IconLayer icon={faCheck} />
       <div className="spacer"/>
      
-        <div className="item">
-          <p>{customer.vehicle}</p>
+        <div className="item no_hover">
+          <p>{vehicle.make} {vehicle.model}, {vehicle.regNumber}</p>
           <p>{parking.parking}</p>
-          <p>{time.time}</p>
-          <p><b>Your total is : 12.00 $</b></p>
+          <p>{time.desc}</p>
+          <p><b>Your total is : {2*(time.value)} $</b></p>
         </div> 
         
         

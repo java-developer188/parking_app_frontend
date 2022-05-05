@@ -39,3 +39,60 @@
     transform: rotate(360deg);
   }
 }
+
+/* -------------------- */
+/*    Icon layer CSS    */
+/* -------------------- */
+
+.icon_layer {
+  background-color: #E3ECEE;
+  padding: 5px;
+  font-size: 2rem;
+}
+
+.icon_dot{
+  height: 50px;
+  width: 50px;
+  background-color: #165269;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* -------------------- */
+
+
+/* -------------------- */
+/*   Data items CSS     */
+/* -------------------- */
+.item {
+  flex: 1;
+  background-color: #A9B7B8;
+  border-radius: 15px;
+  text-align: left;
+  text-indent: 10px;
+  padding: 2%;
+  margin: 2%;
+  font-size: 2rem;
+}
+
+.item:hover{
+  transform: scale(1.005);
+  border: 9px;
+}
+
+.no_hover{
+  pointer-events: none;
+}
+
+.item_selected{
+  flex: 1;
+  background-color: #165269;
+  border-radius: 15px;
+  text-align: left;
+  text-indent: 10px;
+  padding: 2%;
+  margin: 2%;
+  font-size: 2rem;
+  color: white;
+}
+/* -------------------- */

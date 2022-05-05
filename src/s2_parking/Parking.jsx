@@ -2,48 +2,76 @@ import React ,{ useState} from "react";
 import "./Parking.css";
 import { Button } from "reactstrap";
 import {Link, useLocation,useNavigate} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquareParking } from '@fortawesome/free-solid-svg-icons'
 import BulletinBoard from '../s0_bulletin/BulletinBoard';
 import Footer from '../footer/Footer';
 import WelcomeBar from '../s0_welcome/WelcomeBar';
+import IconLayer from "../s0_icon_layer/IconLayer";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Parking() {
   const location = useLocation();
   const [customer, setCustomer] = useState({...location.state.customer})
-  const [parking, setParking] = useState()
-  let navigate = useNavigate();
+  const [vehicle, setVehicle] = useState({...location.state.vehicle})  
+  const [parking, setParking] = useState()  
+  const parkingList = [
+    {id:1,parking:"Parking Zone 1"},
+    {id:2,parking:"Parking Zone 2"}
+  ]
 
+  let navigate = useNavigate();
   const navigateToTimer = (e) => {
-    e.preventDefault();   
+    e.preventDefault();  
+    if(parking) {
     let path = '/timer';
-    navigate(path,{state:{customer:customer,parking:parking}});
+    navigate(path,{state:{customer:customer,
+      vehicle:vehicle,
+      parking:parking}});
+    }
+    else{
+      toast.error('Parking not selected..!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme:"colored"
+        });
+    }
   } 
 
   return (
     <div className="parking">
+      
       <BulletinBoard /> 
       <WelcomeBar/>
-      <div className="icon_layer">
-        <div className="icon_dot">
-            <FontAwesomeIcon icon={faSquareParking} />
-        </div>
-      </div>
+      <IconLayer icon={faSquareParking}/>
+
       <div className="spacer"/>
-      <div id="item1" className= 'item' onClick={(e)=>setParking({id:e.target.id,parking:e.target.textContent})}>
-        Zone 1, North Town
-        </div> 
-        <div id="item2" className= 'item' onClick={(e)=>setParking({id:e.target.id,parking:e.target.textContent})}>
-         Zone 2, South Town
-        </div>   
-        <div className="spacer"/>
-        
+      {parkingList.map((item,index)=>{        
+        if(parking && parking.id == item.id){
+        return <div id={index} className= 'item_selected' onClick={(e)=>setParking(parkingList[e.target.id])}>
+        {item.parking}
+        </div>
+        }
+        else{
+         return  <div id={index} className= 'item' onClick={(e)=>setParking(parkingList[e.target.id])}>
+        {item.parking}
+        </div>
+        }
+      })}
+      <div className="spacer"/>
+    
         <div className="button_layer">
               <div className="hspacer"/>
                       <Button 
                             className="button"
                             tag={Link}
-                            to={"/" } 
+                            to={"/vehicle" } 
                             size="lg" 
                             active>
                     Start Again
@@ -58,6 +86,17 @@ function Parking() {
           <div className="hspacer"/>
       </div>
       <Footer/>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+    />
     </div>
   );
 }
