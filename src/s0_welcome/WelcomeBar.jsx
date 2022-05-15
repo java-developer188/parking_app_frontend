@@ -6,9 +6,9 @@ function WelcomeBar() {
     <div className="welcome_bar">
             <div className="left">
                 <div className="town_heading">
-                                Welcome to North Nazimabad
+                                Welcome to Olds, AB
                 </div>
-                <div className="username">Syed Sibte Haider</div>
+                <div className="username">Registered Customer</div>
             </div>
             <div className="parking_label">Parking</div>
     </div>

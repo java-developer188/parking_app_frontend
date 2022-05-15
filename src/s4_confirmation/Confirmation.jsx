@@ -14,6 +14,7 @@ function Confirmation() {
   const [vehicle, setVehicle] = useState({...location.state.vehicle})  
   const [parking, setParking] = useState({...location.state.parking})
   const [time, setTime] = useState({...location.state.time})
+  const [total, setTotal] = useState((parking.rate*(time.units==="min"? (time.value/60) : time.value)))
   let navigate = useNavigate();
 
   const navigateToSummary = (e) => {
@@ -22,7 +23,8 @@ function Confirmation() {
     navigate(path,{state:{customer:customer,
       vehicle:vehicle,
       parking:parking,
-      time:time}});
+      time:time,
+      total:total}});
   } 
   return (
     <div className="confirmation">
@@ -31,14 +33,17 @@ function Confirmation() {
       <IconLayer icon={faChartLine} />
         <div className="spacer"/>
         <div className="item no_hover">
-        {vehicle.make} {vehicle.model}, {vehicle.regNumber}
+        {vehicle.color} {vehicle.make} {vehicle.model} <i>{vehicle.regNumber}</i>
         </div> 
         <div className="item no_hover">
           {parking.parking}
         </div>    
         <div className="item no_hover">
-          {time.desc}
+        {time.desc === "Max Time" ? (time.desc+"   ("+time.value+" "+time.units+")") : time.desc}
         </div> 
+        <div className="item no_hover">
+          Total: $ {total.toFixed(2)}
+        </div>
         <div className="spacer"/>
         
         <div className="button_layer">

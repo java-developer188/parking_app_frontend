@@ -18,9 +18,9 @@ function Vehicle() {
 
   const [vehicle, setVehicle] = useState()  
   const vehicleList = [
-    {id:1,make:"Mitsubihsi",model:"Lancer",regNumber:"R-2334"},
-    {id:2,make:"Suzuki",model:"Khyber",regNumber:"R-2993"},
-    {id:3,make:"Honda",model:"CD-70",regNumber:"K-1997"}
+    {id:1,make:"Ford",model:"F350",regNumber:"ABC456",color:"Red"},
+    {id:2,make:"Dodge",model:"Journey",regNumber:"CGH190",color:"Blue"},
+    {id:3,make:"GMC",model:"Yukon",regNumber:"UDI404",color:"White"}
   ]
 
   const navigateToVehicle = (e) => {
@@ -62,12 +62,12 @@ function Vehicle() {
       {vehicleList.map((item,index)=>{        
         if(vehicle && vehicle.id == item.id){
         return <div id={index} className= 'item_selected' onClick={(e)=>setVehicle(vehicleList[e.target.id])}>
-        {item.make} {item.model}, {item.regNumber}
+        {item.color} {item.make} {item.model} <i>{item.regNumber}</i>
         </div> 
         }
         else{
          return  <div id={index} className= 'item' onClick={(e)=>setVehicle(vehicleList[e.target.id])}>
-        {item.make} {item.model}, {item.regNumber}
+        {item.color} {item.make} {item.model} <i>{item.regNumber}</i>
         </div>
         }
       })}

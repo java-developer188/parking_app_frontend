@@ -61,13 +61,18 @@ const Login = () => {
         </div>
   </Form>
         </div>
-        <div className='register_link box_heading'>
+        <div className='register_div box_heading'>
           Sign Up 
           <p>If you haven't register yourself till now, so go and register yourself right away..!
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <nav>
             <Link to="/register">Register Now !</Link>
+          </nav>
+        </div>
+        <div className='register_link'>
+          <nav>
+            <Link to="/register">Register</Link>
           </nav>
         </div> 
       </div>

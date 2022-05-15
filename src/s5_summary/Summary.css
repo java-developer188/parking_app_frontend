@@ -1,30 +1,42 @@
 .summary {
-    color: black;
-    justify-content: center;
-    display: flex;
-    flex: 6;
-    flex-direction: column;
-    margin-bottom: 2%;
-    }
+  color: black;
+  justify-content: center;
+  display: flex;
+  flex: 6;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+.summary_icon {
+  display: inline-flex;
+}
+
+.summary_icon_dot {
+  height: 50px;
+  width: 50px;
+  background-color: #165269;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right : 10px;
+}
 
 .vspacer {
-    flex: 2;
+  flex: 2;
 }
 
 @media screen and (max-width: 1200px) {
-    .vspacer {
-        flex: 2;
-    }
+  .vspacer {
+    flex: 2;
+  }
 }
 @media screen and (max-width: 600px) {
-    .vspacer {
-        flex: 2;
-    }
+  .vspacer {
+    flex: 2;
+  }
 }
 @media screen and (max-width: 480px) {
-    .vspacer {
-        flex: 2;
-        margin: 5%;
-    }
-    
+  .vspacer {
+    flex: 2;
+    margin: 5%;
+  }
 }

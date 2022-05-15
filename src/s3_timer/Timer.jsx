@@ -19,7 +19,7 @@ function Timer() {
   const [time, setTime] = useState()
   let navigate = useNavigate(); 
   const timeList = [
-    {id:1,desc:"Custom",value:0,units:""},
+    {id:1,desc:"Max Time",value:parking.maxTime,units:parking.maxUnit},
     {id:2,desc:"60 Minutes",value:60,units:"min"},
     {id:3,desc:"30 Minutes",value:30,units:"min"},
     {id:4,desc:"15 Minutes",value:15,units:"min"}
@@ -58,12 +58,12 @@ function Timer() {
       {timeList.map((item,index)=>{        
         if(time && time.id == item.id){
         return <div id={index} className= 'item_selected' onClick={(e)=>setTime(timeList[e.target.id])}>
-        {item.desc}
+        {item.desc === "Max Time" ? (item.desc+"   ("+item.value+" "+item.units+")") : item.desc}
         </div>
         }
         else{
          return  <div id={index} className= 'item' onClick={(e)=>setTime(timeList[e.target.id])}>
-        {item.desc}
+        {item.desc === "Max Time" ? (item.desc+"   ("+item.value+" "+item.units+")") : item.desc}
         </div>
         }
       })}

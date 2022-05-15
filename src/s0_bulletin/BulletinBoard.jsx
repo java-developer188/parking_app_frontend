@@ -5,7 +5,7 @@ function BulletinBoard() {
   return (
     <div className="bulletinboard">
         <div>
-          Munciple Bulletin Board
+          Municipal bulletin board
         </div>
     </div>
   );
