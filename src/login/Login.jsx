@@ -63,16 +63,17 @@ const Login = () => {
         </div>
         <div className='register_div box_heading'>
           Sign Up 
-          <p>If you haven't register yourself till now, so go and register yourself right away..!
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
+          <p>If you have not registered yourself yet, please do so now by following this link.
+                       Thank you!</p>
           <nav>
-            <Link to="/register">Register Now !</Link>
+            <Link to="/">Register Now !</Link>
+            {/* <p> Register Now !</p> */}
           </nav>
         </div>
         <div className='register_link'>
           <nav>
-            <Link to="/register">Register</Link>
+            <Link to="/">Register</Link>
+            {/* <p> Register</p> */}
           </nav>
         </div> 
       </div>

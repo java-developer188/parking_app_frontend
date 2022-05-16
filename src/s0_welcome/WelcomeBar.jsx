@@ -6,7 +6,7 @@ function WelcomeBar() {
     <div className="welcome_bar">
             <div className="left">
                 <div className="town_heading">
-                                Welcome to Olds, AB
+                                Welcome to Municipality, AB
                 </div>
                 <div className="username">Registered Customer</div>
             </div>

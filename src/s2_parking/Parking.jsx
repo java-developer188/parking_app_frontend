@@ -17,7 +17,7 @@ function Parking() {
   const [parking, setParking] = useState();
   const parkingList = [
     { id: 1, parking: "Zone 1 Downtown",rate:"2",rateUnit:"hr",maxTime:"2",maxUnit:"hr" },
-    { id: 2, parking: "Zone 2 Industrial",rate:"1.53",rateUnit:"hr",maxTime:"4",maxUnit:"hr"},
+    { id: 2, parking: "Zone 2 Industrial",rate:"1.50",rateUnit:"hr",maxTime:"4",maxUnit:"hr"},
   ];
 
   let navigate = useNavigate();
